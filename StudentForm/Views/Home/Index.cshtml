@@ -1,4 +1,10 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@using StudentForm.Areas.Identity.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -7,3 +13,17 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     <p>User Id : @ViewData["UserId"]</p>
 </div>
+
+
+@if ( User.IsInRole("Admin"))
+{
+    <h1>Hi Admin</h1>
+}
+else if (User.IsInRole("User"))
+{
+    <h1>Hi User</h1>
+}
+else
+{
+    <h1>Hi Other</h1>
+}

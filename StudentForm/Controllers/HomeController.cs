@@ -21,12 +21,13 @@ namespace StudentForm.Controllers
         public HomeController(ILogger<HomeController> logger, UserManager<ApplicationUser> userManager)
         {
             _logger = logger;
-            this._userManager = userManager;
+            _userManager = userManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             ViewData["UserId"]=_userManager.GetUserId(this.User);
+            ViewData["User"] = _userManager.GetUserAsync(this.User);
             return View();
         }
 

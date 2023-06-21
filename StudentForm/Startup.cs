@@ -39,8 +39,11 @@ namespace StudentForm
 
             services.Configure<IdentityOptions>(options =>
             {
+                options.SignIn.RequireConfirmedAccount = false;
                 options.Password.RequireUppercase = false;
             });
+
+
 
         }
 
