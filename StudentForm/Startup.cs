@@ -43,6 +43,9 @@ namespace StudentForm
                 options.Password.RequireUppercase = false;
             });
 
+            services.AddDbContext<EmployeeDbContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
 
 
         }
