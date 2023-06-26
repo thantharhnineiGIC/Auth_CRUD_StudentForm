@@ -30,11 +30,9 @@ namespace StudentForm
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<StudentFormContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddDbContext<AuthDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<StudentFormContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")))
+                    .AddDbContext<EmployeeDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")))
+                    .AddDbContext<CalculateDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
 
             services.Configure<IdentityOptions>(options =>
@@ -42,9 +40,6 @@ namespace StudentForm
                 options.SignIn.RequireConfirmedAccount = false;
                 options.Password.RequireUppercase = false;
             });
-
-            services.AddDbContext<EmployeeDbContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
 
 

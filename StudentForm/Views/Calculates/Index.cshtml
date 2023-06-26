@@ -1,0 +1,108 @@
+﻿@model IEnumerable<StudentForm.Models.Calculate>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Create">
+            <div class="form-group row">
+                <label for="FirstNum" class="offset-2 col-sm-2 col-form-label">First Number</label>
+                <div class="col-sm-6">
+                    <input type="number" id="FirstNum" name="FirstNum">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="SecondNum" class="offset-2 col-sm-2 col-form-label">Second Number</label>
+                <div class="col-sm-6">
+                    <input type="number" id="SecondNum" name="SecondNum">
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary mb-2">Add</button>
+            </div>
+        </form>
+        @if (ViewData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success">
+                @ViewData["SuccessMessage"]
+            </div>
+        }
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SecondNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Result)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstNum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SecondNum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Result)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal-@item.Id">
+                        Edit
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="editModal-@item.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Edit Box</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body" method="post">
+                                    <form asp-action="Edit">
+                                        <input type="hidden" id="Id" name="Id" value="@item.Id" /> <!-- Pass the ID as a hidden field -->
+                                        <div class="form-group row">
+                                            <label for="FirstNum" class="col-sm-5 col-form-label">First Number</label>
+                                            <div class="col-sm-7">
+                                                <input type="number" id="FirstNum" name="FirstNum" value="@item.FirstNum">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="SecondNum" class="col-sm-5 col-form-label">Second Number</label>
+                                            <div class="col-sm-7">
+                                                <input type="number" id="SecondNum" name="SecondNum" value="@item.SecondNum">
+                                            </div>
+                                        </div>
+                                        <div class="row d-flex justify-content-center">
+                                            <button type="submit" class="btn btn-primary mb-2">Update</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

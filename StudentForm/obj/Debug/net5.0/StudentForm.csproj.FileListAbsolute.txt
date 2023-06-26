@@ -178,3 +178,4 @@ C:\Users\GICM\Desktop\C#\TestingProjects\StudentForm\StudentForm\obj\Debug\net5.
 C:\Users\GICM\Desktop\C#\TestingProjects\StudentForm\StudentForm\obj\Debug\net5.0\Razor\Views\Employees\Cross.cshtml.g.cs
 C:\Users\GICM\Desktop\C#\TestingProjects\StudentForm\StudentForm\obj\Debug\net5.0\Razor\Views\Employees\Minus.cshtml.g.cs
 C:\Users\GICM\Desktop\C#\TestingProjects\StudentForm\StudentForm\obj\Debug\net5.0\Razor\Views\Employees\Triangle.cshtml.g.cs
+C:\Users\GICM\Desktop\C#\TestingProjects\StudentForm\StudentForm\obj\Debug\net5.0\Razor\Views\Calculates\Index.cshtml.g.cs
