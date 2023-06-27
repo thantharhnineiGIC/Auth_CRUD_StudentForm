@@ -20,9 +20,10 @@ namespace StudentForm.Controllers
         }
 
         // GET: Employees
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.Employee.ToListAsync());
+            var employees = _context.Employee.Include(e => e.Department).ToList();
+            return View(employees);
         }
 
         // GET: Employees/Circle/5

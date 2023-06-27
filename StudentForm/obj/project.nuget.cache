@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "u3gy3tsIygbZl87PfmFpMEzc6gd8uOoocc7GTksoV1Guzs0+6b5MApbfMNSOvNkMWQfiPX6jsxLGYL4q5gv5eg==",
+  "dgSpecHash": "IX2Pn3kh8qfFolZ+P0NubULQ82RLhIxAKGNkNFQZjL0UqywnH/msn5P6GQUqLRZK0r8h2Mjd3hOYfenkoIoRJQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\GICM\\Desktop\\C#\\TestingProjects\\StudentForm\\StudentForm\\StudentForm.csproj",
   "expectedPackageFiles": [
@@ -26,6 +26,7 @@
     "C:\\Users\\GICM\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
     "C:\\Users\\GICM\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\5.0.0\\microsoft.aspnetcore.razor.language.5.0.0.nupkg.sha512",
     "C:\\Users\\GICM\\.nuget\\packages\\microsoft.aspnetcore.razor.runtime\\2.2.0\\microsoft.aspnetcore.razor.runtime.2.2.0.nupkg.sha512",
+    "C:\\Users\\GICM\\.nuget\\packages\\microsoft.aspnetcore.session\\2.2.0\\microsoft.aspnetcore.session.2.2.0.nupkg.sha512",
     "C:\\Users\\GICM\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.2.0\\microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
     "C:\\Users\\GICM\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\GICM\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.0.0\\microsoft.codeanalysis.analyzers.3.0.0.nupkg.sha512",

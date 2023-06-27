@@ -9,6 +9,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using System.Data;
+using Newtonsoft.Json;
 
 namespace StudentForm.Controllers
 {
@@ -26,8 +29,9 @@ namespace StudentForm.Controllers
 
         public async Task<IActionResult> Index()
         {
-            ViewData["UserId"]=_userManager.GetUserId(this.User);
+            ViewData["UserId"] = _userManager.GetUserId(this.User);
             ViewData["User"] = _userManager.GetUserAsync(this.User);
+
             return View();
         }
 

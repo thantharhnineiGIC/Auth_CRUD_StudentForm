@@ -37,7 +37,9 @@
                                     @if (User.IsInRole("Admin"))
                                     {
                                         <a class="dropdown-item" asp-area="" asp-controller="Employees" asp-action="Index">Employees</a>
+                                        <a class="dropdown-item" asp-area="" asp-controller="Departments" asp-action="Index">Departments</a>
                                         <a class="dropdown-item" asp-area="" asp-controller="Students" asp-action="Index">Students</a>
+                                        <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="Index">Users</a>
 
                                         <div class="dropdown-divider"></div>
                                     }

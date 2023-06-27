@@ -16,7 +16,7 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Department)
+                Department
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Band)
@@ -34,7 +34,7 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Department)
+                @Html.DisplayFor(modelItem => item.Department.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Band)

@@ -15,5 +15,13 @@ namespace StudentForm.Data
         }
 
         public DbSet<StudentForm.Models.Employee> Employee { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Employee>()
+                .HasOne(e => e.Department)
+                .WithMany(d => d.Employees) // Specify the Employees navigation property in the Department entity
+                .HasForeignKey(e => e.DepartmentId);
+        }
     }
 }

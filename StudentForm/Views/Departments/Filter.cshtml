@@ -1,0 +1,77 @@
+﻿@model StudentForm.Models.DepartmentEmployeesViewModel
+
+@{
+    ViewData["Title"] = "Filter";
+}
+
+<!-- Display department details -->
+<h2>Department</h2>
+<p>Name: @Model.Department.Name</p>
+<p>Description: @Model.Department.Description</p>
+
+<!-- Display employee count -->
+<p>Employee Count: @ViewData["EmployeeCount"]</p>
+
+@if ((int)ViewData["EmployeeCount"] > 1)
+{
+    <select id="employeeSelect" class="form-control">
+        <option value="">Select an employee</option>
+        @foreach (var employee in Model.Employees)
+        {
+            <option value="@employee.Id">@employee.Name</option>
+        }
+
+    </select>
+
+    <br />
+<textarea class="form-control" id="textareaRelatedData" style="display: none;"></textarea>
+
+}
+else
+{
+    <!-- Display employees list -->
+    <h2>Employees</h2>
+    <ul>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">
+        @foreach (var employee in Model.Employees)
+        {    
+            @employee.Name
+        }
+        </textarea>
+    </ul>
+
+}
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#employeeSelect').change(function () {
+            var selectedEmployeeId = $(this).val();
+            if (selectedEmployeeId !== '') {
+                // Show the textarea
+                $('#textareaRelatedData').show();
+
+                // Make an AJAX request to fetch the related data
+                $.ajax({
+                    url: '/Departments/GetRelatedData',
+                    type: 'GET',
+                    data: { employeeId: selectedEmployeeId },
+                    success: function (data) {
+                        // Populate the textarea with the fetched data
+                        $('#textareaRelatedData').val(data);
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            } else {
+                // Hide the textarea
+                $('#textareaRelatedData').hide();
+            }
+        });
+    });
+</script>
+

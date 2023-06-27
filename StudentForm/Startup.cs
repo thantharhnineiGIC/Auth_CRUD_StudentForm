@@ -32,6 +32,7 @@ namespace StudentForm
 
             services.AddDbContext<StudentFormContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")))
                     .AddDbContext<EmployeeDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")))
+                    .AddDbContext<DepartmentDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")))
                     .AddDbContext<CalculateDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
 
@@ -42,6 +43,17 @@ namespace StudentForm
             });
 
 
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
+            services.AddDbContext<DepartmentDbContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("DepartmentDbContext")));
 
         }
 
@@ -66,6 +78,8 @@ namespace StudentForm
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
